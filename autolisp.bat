@@ -82,7 +82,7 @@ Class AutoLisp
         Set doc = ActiveDocument ' Test if there is an ActiveDocument
         Select Case HostApp
             Case ha_AutoCAD
-                VLApp.ActiveDocument.Functions.Item("load").funcall(CStr(filename))
+                ActiveDocument.SendCommand "(load """ & CStr(filename) & """) "
             Case ha_BricsCAD
                 ActiveDocument.EvaluateLisp _
                     "(eval (read """ & _
